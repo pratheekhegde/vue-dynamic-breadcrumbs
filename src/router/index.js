@@ -4,6 +4,8 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 import HelloEarth from '@/components/HelloEarth.vue'
 import HelloMoon from '@/components/HelloMoon.vue'
+import HelloSaturn from '@/components/HelloSaturn.vue'
+import HelloSaturnMoon from '@/components/HelloSaturnMoon.vue'
 
 Vue.use(Router)
 
@@ -15,11 +17,24 @@ const router = new Router({
     },
     {
       path: '/earth',
-      component: HelloEarth
+      component: HelloEarth,
+      children: [
+        {
+          path: 'moon',
+          component: HelloMoon
+        }
+      ]
     },
     {
-      path: '/earth/moon',
-      component: HelloMoon
+      path: '/saturn',
+      component: HelloSaturn,
+      children: [
+        {
+          path: ':moon',
+          component: HelloSaturnMoon,
+          props: true
+        }
+      ]
     },
     {
       path: '*',
