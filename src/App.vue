@@ -22,12 +22,18 @@
       </li>
     </ul>
     <router-view/>
+    <bread-crumb></bread-crumb>
   </div>
 </template>
 
 <script>
+import BreadCrumb from '@/components/BreadCrumb'
+
 export default {
-  name: "app"
+  name: "app",
+  components: {
+    BreadCrumb
+  }
 };
 </script>
 
