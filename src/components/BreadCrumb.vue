@@ -1,9 +1,14 @@
 <template>
   <div>
     {{ crumbs }}
+    <br><br>
+    <div class="container">
+       <b-breadcrumb :items="crumbs"/>
+    </div>
   </div>
 </template>
 <script>
+
 export default {
   computed: {
     crumbs: function() {
@@ -12,10 +17,10 @@ export default {
       let breadcrumbs = pathArray.reduce((breadcrumbArray, path, idx) => {
         breadcrumbArray.push({
           path: path,
-          toLink: breadcrumbArray[idx - 1]
+          to: breadcrumbArray[idx - 1]
             ? "/" + breadcrumbArray[idx - 1].path + "/" + path
             : "/" + path,
-          name: this.$route.matched[idx].meta.breadCrumb || path
+          text: this.$route.matched[idx].meta.breadCrumb || path,
         });
         return breadcrumbArray;
       }, [])
@@ -24,3 +29,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+.container{
+  margin: auto;
+  width: 50%
+}
+</style>
