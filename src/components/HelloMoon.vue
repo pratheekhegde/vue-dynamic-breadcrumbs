@@ -1,5 +1,5 @@
 <template>
-    <h1>Hello Moon Vue.js</h1>
+    <h2>Hello Moon Vue.js</h2>
 </template>
 
 <script>
